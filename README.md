@@ -1,2 +1,2 @@
 # Interactive-Graphics-
-interactive graphics course homework
+interactive graphics course homeworks
