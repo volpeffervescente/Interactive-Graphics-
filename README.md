@@ -1,4 +1,2 @@
-# Interactive-Graphics-
-interactive graphics course homeworks
-## NOTE:
-In order to properly see the texture on the object, you have to choose the texture, then unselect the "Show Texture" button, and finally re click on it. 
+# Interactive-Graphics
+interactive graphics course homeworks. Following https://graphics.cs.utah.edu/courses/cs4600/fall2024/ course projects. 
