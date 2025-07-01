@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fox and Flow</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * { margin:0; padding:0; box-sizing:border-box; }
+      html, body { width:100%; height:100%; overflow:hidden; }
+      body { font-family: 'Press Start 2P', monospace; background:#000; }
+      #app, #app canvas {
+        position:absolute; top:0; left:0;
+        width:100%; height:100%;
+      }
+      #game-ui {
+        position:absolute; top:0; left:0;
+        width:100%; height:100%;
+        pointer-events:none;
+        z-index:10;
+      }
+      #veil {
+        position:absolute; top:0; left:0;
+        width:100%; height:100%;
+        background:rgba(0,0,0,0.6);
+        pointer-events:auto;
+        z-index:5;
+      }
+      .hidden { display:none; }
+      .overlay {
+        position:absolute;
+        top:50%; left:50%;
+        transform:translate(-50%,-50%);
+        background:rgba(0,0,0,0.75);
+        color:#fff;
+        padding:2rem;
+        border:4px solid #fff;
+        text-align:center;
+        pointer-events:auto;
+        z-index:10;
+      }
+
+      button {
+        pointer-events:auto;
+        margin:0.5rem;
+        padding:0.5rem 1rem;
+        background:#fff;
+        color:#000;
+        border:none;
+        font-family:inherit;
+        font-size:0.8rem;
+        cursor:pointer;
+      }
+      button:hover {
+        filter:brightness(0.9);
+      }
+
+      #hud {
+        position:absolute;
+        top:1rem; right:1rem;
+        display:flex; flex-direction:column; gap:0.5rem;
+        pointer-events:none;
+        z-index:20;
+      }
+      #hud div {
+        background:rgba(0,0,0,0.5);
+        padding:0.5rem 1rem;
+        border:4px solid #fff;
+        color:#fff;
+        font-size:0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="game-ui">
+        <div id="veil" class="hidden"></div>
+        <div id="main-menu" class="overlay hidden">
+          <h1>🦊 Fox &amp; Flow</h1>
+          <p>
+            In a wood you are a hungry fox.<br/>
+            Collect mushrooms, eggs and rubies,<br/>
+            but watch out: angry chicken will chase you!<br/>
+            Reach <strong>150 points</strong> before the rooster gets you<br/>
+            or time runs out.
+          </p>
+          <button id="btn-start">Start Game</button>
+          <button id="btn-explore">Explore Map</button>
+        </div>
+        <div id="hud" class="hidden">
+          <div id="score">Score: 0</div>
+          <div id="timer">Left Time: 500</div>
+          <button id="btn-pause">Pause</button>
+        </div>
+        <div id="win-screen" class="overlay hidden">
+          <h1>You Win! 🎉</h1>
+          <p id="win-score">You got 150 points!</p>
+          <button id="btn-win-quit">Back to Menu</button>
+        </div>
+        <div id="game-over-screen" class="overlay hidden">
+          <h1>Game Over</h1>
+          <p id="final-score">You got 0 points</p>
+          <button id="btn-quit">Back to Menu</button>
+        </div>
+        <div id="pause-screen" class="overlay hidden">
+          <h1>Paused</h1>
+          <button id="btn-resume">Resume</button>
+          <button id="btn-pause-quit">Quit</button>
+        </div>
+        <div id="temp-message" class="overlay hidden"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
